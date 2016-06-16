@@ -39,6 +39,7 @@ public class GameWindow {
 	private JButton btnStart;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private Character ch1 = new Bandit();
+	private JPanel panelChooseCharacter;
 	
 
 	/**
@@ -81,7 +82,7 @@ public class GameWindow {
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelWelcome.setVisible(false);
-				panelGame.setVisible(true);
+				panelChooseCharacter.setVisible(true);
 			}
 		});
 		btnStart.setBounds(167, 141, 91, 23);
@@ -107,17 +108,17 @@ public class GameWindow {
 		
 		JRadioButton rdbtnSkill3 = new JRadioButton(ch1.SK3().getSkillName());
 		buttonGroup.add(rdbtnSkill3);
-		rdbtnSkill3.setBounds(159, 232, 109, 23);
+		rdbtnSkill3.setBounds(175, 232, 109, 23);
 		panelGame.add(rdbtnSkill3);
 		
 		JRadioButton rdbtnSkill4 = new JRadioButton(ch1.SK4().getSkillName());
 		buttonGroup.add(rdbtnSkill4);
-		rdbtnSkill4.setBounds(319, 232, 109, 23);
+		rdbtnSkill4.setBounds(335, 232, 109, 23);
 		panelGame.add(rdbtnSkill4);
 		
 		JRadioButton rdbtnSkill5 = new JRadioButton(ch1.SK5().getSkillName());
 		buttonGroup.add(rdbtnSkill5);
-		rdbtnSkill5.setBounds(319, 206, 109, 23);
+		rdbtnSkill5.setBounds(335, 206, 109, 23);
 		panelGame.add(rdbtnSkill5);
 		
 		JButton btnConfirmMove = new JButton("Select");
@@ -125,13 +126,76 @@ public class GameWindow {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnConfirmMove.setBounds(171, 208, 91, 23);
+		btnConfirmMove.setBounds(165, 206, 91, 23);
 		panelGame.add(btnConfirmMove);
 		rdbtnSkill1.setToolTipText(ch1.SK1().getSkillDescription());
 		rdbtnSkill2.setToolTipText(ch1.SK2().getSkillDescription());
 		rdbtnSkill3.setToolTipText(ch1.SK3().getSkillDescription());
 		rdbtnSkill4.setToolTipText(ch1.SK4().getSkillDescription());
 		rdbtnSkill5.setToolTipText(ch1.SK5().getSkillDescription());
+		
+		panelChooseCharacter = new JPanel();
+		frame.getContentPane().add(panelChooseCharacter, "name_631367793784");
+		panelChooseCharacter.setLayout(null);
+		
+		JRadioButton rdbtnBandit = new JRadioButton("Bandit");
+		rdbtnBandit.setSelected(true);
+		buttonGroup.add(rdbtnBandit);
+		rdbtnBandit.setBounds(6, 7, 109, 23);
+		panelChooseCharacter.add(rdbtnBandit);
+		
+		JRadioButton rdbtnWarrior = new JRadioButton("Warrior");
+		buttonGroup.add(rdbtnWarrior);
+		rdbtnWarrior.setBounds(6, 33, 109, 23);
+		panelChooseCharacter.add(rdbtnWarrior);
+		
+		JRadioButton rdbtnKnight = new JRadioButton("Knight");
+		buttonGroup.add(rdbtnKnight);
+		rdbtnKnight.setBounds(6, 59, 109, 23);
+		panelChooseCharacter.add(rdbtnKnight);
+		
+		JRadioButton rdbtnDwarf = new JRadioButton("Dwarf");
+		buttonGroup.add(rdbtnDwarf);
+		rdbtnDwarf.setBounds(319, 33, 109, 23);
+		panelChooseCharacter.add(rdbtnDwarf);
+		
+		JRadioButton rdbtnDemon = new JRadioButton("Demon");
+		buttonGroup.add(rdbtnDemon);
+		rdbtnDemon.setBounds(319, 7, 109, 23);
+		panelChooseCharacter.add(rdbtnDemon);
+		
+		JRadioButton rdbtnWerewolf = new JRadioButton("Werewolf");
+		buttonGroup.add(rdbtnWerewolf);
+		rdbtnWerewolf.setBounds(319, 59, 109, 23);
+		panelChooseCharacter.add(rdbtnWerewolf);
+		
+		JRadioButton rdbtnRandom = new JRadioButton("Random");
+		buttonGroup.add(rdbtnRandom);
+		rdbtnRandom.setBounds(325, 232, 109, 23);
+		panelChooseCharacter.add(rdbtnRandom);
+		
+		JRadioButton rdbtnWizard = new JRadioButton("Wizard");
+		buttonGroup.add(rdbtnWizard);
+		rdbtnWizard.setBounds(6, 232, 109, 23);
+		panelChooseCharacter.add(rdbtnWizard);
+		
+		JRadioButton rdbtnCyclops = new JRadioButton("Dwayde");
+		buttonGroup.add(rdbtnCyclops);
+		rdbtnCyclops.setBounds(6, 206, 109, 23);
+		panelChooseCharacter.add(rdbtnCyclops);
+		
+		JRadioButton rdbtnPirate = new JRadioButton("Argh");
+		buttonGroup.add(rdbtnPirate);
+		rdbtnPirate.setBounds(325, 206, 109, 23);
+		panelChooseCharacter.add(rdbtnPirate);
+		
+		JButton btnConfirm = new JButton("Confirm!");
+		btnConfirm.setBounds(173, 206, 91, 23);
+		panelChooseCharacter.add(btnConfirm);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(190, 118, 46, 14);
+		panelChooseCharacter.add(lblNewLabel);
 	}
 
 	private class SwingAction extends AbstractAction {
