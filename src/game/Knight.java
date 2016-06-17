@@ -1,8 +1,7 @@
 package game;
 
-public class Bandit extends Character {
-
-	public Bandit() {
+public class Knight extends Character {
+	public Knight() {
 		super();
 		health = 90;
 		maxHealth = 90;
@@ -11,7 +10,7 @@ public class Bandit extends Character {
 		power = .9;
 		defense = 1;
 		speed = 8;
-		sk1 = new Skill("Slash", "A quick slash of the sword.", 
+		sk1 = new Skill("goodasfkjdslkjh", "A quick slash of the sword.", 
 				"The bandit slashes with his sword!", 1.0, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
@@ -36,3 +35,5 @@ public class Bandit extends Character {
 	
 
 }
+
+

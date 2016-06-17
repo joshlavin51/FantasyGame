@@ -105,20 +105,6 @@ public abstract class Character {
 		power += amount;
 	}
 	
-	public void skill1(Character target){
-		
-	}
-	public void skill2(Character target){
-		
-	}
-	public void skill3(Character target){
-		
-	}
-	public void skill4(Character target){
-		
-	}
-	public void skill5(Character target){
-		
-	}
+	
 	
 }
