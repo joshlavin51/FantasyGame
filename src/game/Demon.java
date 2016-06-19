@@ -20,7 +20,7 @@ public class Demon extends Character{
 				1.0, false, 1.0);
 
 		sk3 = new Skill("Demonic Sacrifice", "Give up some of your own health to deal more damage.", 
-				this.getName() + " deals a devastating attack to its opponent.", 1.4, false,
+				this.getName() + " deals a devastating attack to its opponent.", 1.3, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, true, -.1);
 		sk4 = new Skill("Evil Glare", "Make your opponent cower in fear, lowering their power and speed.", 

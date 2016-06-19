@@ -674,7 +674,7 @@ public class GameWindow {
 			skl1.setDM(.9 * ch2.getPower());
 		}
 		if (skl1.getSkillName().equals("Decimate")){
-			skl1.setDM(.7 + (((double)ch2.getMaxHealth()- (double)ch2.getHealth())/900.0));
+			skl1.setDM(.7 + (((double)ch2.getMaxHealth()- (double)ch2.getHealth())/850.0));
 		}
 		if (skl1.getStuns() == true){
 			Random rn = new Random();
@@ -769,7 +769,7 @@ public class GameWindow {
 			skl2.setDM(.9 * ch1.getPower());
 		}
 		if (skl2.getSkillName().equals("Decimate")){
-			skl2.setDM(.7 + (ch2.getMaxHealth()- ch2.getHealth())/1000);
+			skl2.setDM(.7 + ((double)ch2.getMaxHealth()- (double)ch2.getHealth())/850);
 		}
 		if (skl2.getStuns() == true){
 			Random rn = new Random();
@@ -851,7 +851,7 @@ public class GameWindow {
 	public void checkStun2(){
 		if (ch2.getStunned() == true){
 			lblBattleText.setText(ch2.getName() + " is stunned and cannot move!");
-			ch1.setStun(false);
+			ch2.setStun(false);
 		} 
 		else {
 			battle2();
