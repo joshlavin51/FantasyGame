@@ -58,7 +58,7 @@ public abstract class Character {
 // Action methods
 	// Restores character's health by set amount
 	public void restoreHealth(double amount){
-		health += amount;
+		health += maxHealth * (1 - amount) ;
 		if(health > maxHealth){
 			health = maxHealth;
 		}

@@ -7,7 +7,7 @@ public class Dwarf extends Character{
 		maxHealth = 1070;
 		power = .9;
 		defense = 1.2;
-		speed = 3;
+		speed = 30;
 		sk1 = new Skill("Pound", "Hit your opponent with your hammer.", 
 				"The dwarf pounds his opponent with his hammer", 1.0, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,

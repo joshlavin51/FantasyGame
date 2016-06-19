@@ -39,6 +39,7 @@ import javax.swing.ButtonGroup;
 
 import java.awt.event.MouseMotionAdapter;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JTextPane;
@@ -98,6 +99,10 @@ public class GameWindow {
 	private JButton btnConfirmMove;
 	private JLabel lblCh1Health;
 	private JLabel lblCh2Health;
+	private JPanel panelRestart;
+	private JLabel lblWinner;
+	private JButton btnPlayAgain;
+	private JLabel lblGameOver;
 	
 	
 
@@ -168,28 +173,29 @@ public class GameWindow {
 		panelGame.setLayout(null);
 		
 		rdbtnSkill1 = new JRadioButton(dummy.SK1().getSkillName());
+		rdbtnSkill1.setSelected(true);
 		buttonGroup.add(rdbtnSkill1);
-		rdbtnSkill1.setBounds(6, 235, 161, 23);
+		rdbtnSkill1.setBounds(6, 195, 161, 23);
 		panelGame.add(rdbtnSkill1);
 		
 		rdbtnSkill2 = new JRadioButton(dummy.SK2().getSkillName());
 		buttonGroup.add(rdbtnSkill2);
-		rdbtnSkill2.setBounds(6, 355, 161, 23);
+		rdbtnSkill2.setBounds(6, 235, 161, 23);
 		panelGame.add(rdbtnSkill2);
 		
 		rdbtnSkill3 = new JRadioButton(dummy.SK3().getSkillName());
 		buttonGroup.add(rdbtnSkill3);
-		rdbtnSkill3.setBounds(6, 315, 161, 23);
+		rdbtnSkill3.setBounds(6, 275, 161, 23);
 		panelGame.add(rdbtnSkill3);
 		
 		rdbtnSkill4 = new JRadioButton(dummy.SK4().getSkillName());
 		buttonGroup.add(rdbtnSkill4);
-		rdbtnSkill4.setBounds(6, 195, 161, 23);
+		rdbtnSkill4.setBounds(6, 315, 161, 23);
 		panelGame.add(rdbtnSkill4);
 		
 		rdbtnSkill5 = new JRadioButton(dummy.SK5().getSkillName());
 		buttonGroup.add(rdbtnSkill5);
-		rdbtnSkill5.setBounds(6, 275, 161, 23);
+		rdbtnSkill5.setBounds(6, 355, 161, 23);
 		panelGame.add(rdbtnSkill5);
 		
 		btnConfirmMove = new JButton("Select");
@@ -322,7 +328,7 @@ public class GameWindow {
 					panelGame.setVisible(true);
 					lblBattleText.setText("Player 1, select a move.");
 					lblCh1Health.setText("P1 Health: " + (int) ch1.getHealth()+ "/" + (int) ch1.getMaxHealth());
-					lblCh2Health.setText("P2 Health: " + (int) ch2.getHealth()+ "/" + (int) ch1.getMaxHealth());
+					lblCh2Health.setText("P2 Health: " + (int) ch2.getHealth()+ "/" + (int) ch2.getMaxHealth());
 				}
 			}
 		});
@@ -334,6 +340,25 @@ public class GameWindow {
 		lblP1P2.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblP1P2.setBounds(256, 324, 193, 14);
 		panelChooseCharacter.add(lblP1P2);
+		
+		panelRestart = new JPanel();
+		frame.getContentPane().add(panelRestart, "name_1501485201390914");
+		panelRestart.setLayout(null);
+		
+		btnPlayAgain = new JButton("Play Again?");
+		btnPlayAgain.setBounds(308, 321, 89, 23);
+		panelRestart.add(btnPlayAgain);
+		
+		lblWinner = new JLabel("Winner goes here");
+		lblWinner.setHorizontalAlignment(SwingConstants.CENTER);
+		lblWinner.setBounds(175, 181, 354, 14);
+		panelRestart.add(lblWinner);
+		
+		lblGameOver = new JLabel("Game Over!");
+		lblGameOver.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGameOver.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblGameOver.setBounds(304, 89, 96, 36);
+		panelRestart.add(lblGameOver);
 		
 	}
 
@@ -447,30 +472,85 @@ public class GameWindow {
 	public void battleStart(){
 		if (skl1.getGoesFirst() == true &&  skl2.getGoesFirst() == false){
 			battle1();
-			battle2();
+			new java.util.Timer().schedule( 
+			        new java.util.TimerTask() {
+			            @Override
+			            public void run() {
+			            	battle2();
+			            }
+			        }, 
+			        3000 
+			); if (ch1.getHealth() == 0 || ch2.getHealth() == 0){
+				
+			}
+			
 		}	
 		else if (skl2.getGoesFirst() == true && skl1.getGoesFirst() == false){
 			battle2();
-			battle1();
+			new java.util.Timer().schedule( 
+			        new java.util.TimerTask() {
+			            @Override
+			            public void run() {
+			            	battle1();
+			            }
+			        }, 
+			        3000 
+			); 
+			
 		} else {
 			determineFirst();
 		}
+		new java.util.Timer().schedule( 
+		        new java.util.TimerTask() {
+		            @Override
+		            public void run() {
+		            	rdbtnSkill1.setVisible(true);
+		        		rdbtnSkill2.setVisible(true);
+		        		rdbtnSkill3.setVisible(true);
+		        		rdbtnSkill4.setVisible(true);
+		        		rdbtnSkill5.setVisible(true);
+		        		btnConfirmMove.setVisible(true);
+		        		chooser1 = 1;
+		        		lblBattleText.setText("Player 1, select your move.");
+		        		
+		            }
+		        }, 
+		        6000 
+		);
+		
 	}
 	
 	// Determines which character goes first in combat
 	public void determineFirst(){
-		Random rand = new Random(100);
+		Random rand = new Random();
 		int speedRatio = 50;
 		speedRatio += ch1.getSpeed() - ch2.getSpeed();
-		int randNum = rand.nextInt();
-		if(speedRatio <= randNum){
+		if(rand.nextInt(100) >= speedRatio){
 			// P2 goes first
-			battle1();
 			battle2();
+			new java.util.Timer().schedule( 
+			        new java.util.TimerTask() {
+			            @Override
+			            public void run() {
+			            	battle1();
+			            }
+			        }, 
+			        3000 
+			);
+			
+			
 		} else {
-			// P1 goes first.
-			battle2();
 			battle1();
+			new java.util.Timer().schedule( 
+			        new java.util.TimerTask() {
+			            @Override
+			            public void run() {
+			            	battle2();
+			            }
+			        }, 
+			        3000 
+			);
+			
 		}
 		
 	}
@@ -481,8 +561,8 @@ public class GameWindow {
 			forgeCount1++;
 		}
 		if (skl1.getSkillName().equals("Critical Strike")){
-			Random rnd = new Random(3);
-			if (rnd.nextInt() == 0){
+			Random rnd = new Random();
+			if (rnd.nextInt(3) == 0){
 				skl1.setDM(1.6);
 			} else {
 				skl1.setDM(.7);
@@ -530,7 +610,24 @@ public class GameWindow {
 		if (skl1.getRestoresHealth() == true){
 			ch1.restoreHealth(skl1.getHealthRestore());
 		}
+		
+		lblBattleText.setText(skl1.getUsedSkill());
+		lblCh1Health.setText("P1 Health: " + (int) ch1.getHealth()+ "/" + (int) ch1.getMaxHealth());
+		lblCh2Health.setText("P2 Health: " + (int) ch2.getHealth()+ "/" + (int) ch2.getMaxHealth());
+		if (ch1.getHealth() == 0 || ch2.getHealth() == 0){
+		new java.util.Timer().schedule( 
+		        new java.util.TimerTask() {
+		            @Override
+		            public void run() {
+		            	
+		        			restart();
+		
 
+		            }
+		        }, 
+		        3000 
+		);
+		}
 	}
 	
 	private void battle2() {
@@ -540,8 +637,8 @@ public class GameWindow {
 			forgeCount2++;
 		}
 		if (skl2.getSkillName().equals("Critical Strike")){
-			Random rnd = new Random(3);
-			if (rnd.nextInt() == 0){
+			Random rnd = new Random();
+			if (rnd.nextInt(3) == 0){
 				skl2.setDM(1.6);
 			} else {
 				skl2.setDM(.7);
@@ -584,6 +681,33 @@ public class GameWindow {
 		
 		if (skl1.getRestoresHealth() == true){
 			ch1.restoreHealth(skl1.getHealthRestore());
+		}
+		lblBattleText.setText(skl2.getUsedSkill());
+		lblCh1Health.setText("P1 Health: " + (int) ch1.getHealth()+ "/" + (int) ch1.getMaxHealth());
+		lblCh2Health.setText("P2 Health: " + (int) ch2.getHealth()+ "/" + (int) ch2.getMaxHealth());
+		if (ch1.getHealth() == 0 || ch2.getHealth() == 0){
+		new java.util.Timer().schedule( 
+		        new java.util.TimerTask() {
+		            @Override
+		            public void run() {
+		            	
+		        			restart();
+
+		            }
+		        }, 
+		        3000 
+		);
+		}
+	}
+	public void restart(){
+		panelGame.setVisible(false);
+		panelRestart.setVisible(true);
+		if (ch1.getHealth() > ch2.getHealth()){
+			lblWinner.setText("Player 1 wins!");
+		} if (ch2.getHealth() > ch1.getHealth()){
+			lblWinner.setText("Player 2 wins!");
+		} if (ch1.getHealth() == ch2.getHealth()){
+			lblWinner.setText("Draw!");
 		}
 	}
 }

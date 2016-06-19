@@ -15,7 +15,7 @@ public class Wizard extends Character{
 				1.0, false, 1.0);
 
 		sk2 = new Skill("Winter’s Breath", "Freeze your opponent in their tracks.", 
-				"The wizard blows icy winds on their opponent", 0.6, false,
+				"The wizard blows icy winds on their opponent, slowing them", 0.6, false,
 				false, false, false, 1.0, 0.7, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 
@@ -25,7 +25,7 @@ public class Wizard extends Character{
 				1.0, true, 1.2);
 
 		sk4 = new Skill("Thunder Jolt", "Channel lightning to shock your opponent and lower their power.", 
-				"The wizard shocks his opponent with lightning.", 0.6, false,
+				"The wizard shocks his opponent with lightning, reducing their power.", 0.6, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 0.8,
 				1.0, false, 1.0);
 

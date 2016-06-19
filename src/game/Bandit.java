@@ -10,7 +10,7 @@ public class Bandit extends Character {
 		defense = 1;
 		speed = 82;
 		sk1 = new Skill("Slash", "A quick slash of the sword.", 
-				"The bandit slashes with his sword!", 1.0, false,
+				"The bandit slashes his opponent with his sword.", 1.0, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 		
@@ -19,10 +19,10 @@ public class Bandit extends Character {
 				false, false, false, 1.0, 0.8, 1.0, 1.0, 1.0, 0.8,1.0, false, 1.0);
 		
 		sk3 = new Skill("Critical strike", "Risk using a weaker attack to possibly deal tons of damage.", 
-				"The desert bandit takes a risky strike at his opponent.", 0.7, false,								false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+				"The desert bandit takes a risky strike at his opponent.", 0.7, false, false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0); //deals 1.6 on  times
 
-		sk4 = new Skill("Opening Gambit", "Deal high damage if your opponent is unharmed.", 						"The desert bandit wounds his opponent.", 0.8, false,
+		sk4 = new Skill("Opening Gambit", "Deal high damage if your opponent is unharmed.", "The desert bandit wounds his opponent.", 0.8, false,
 				false, false, true, 1.2, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 

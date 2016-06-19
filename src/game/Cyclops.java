@@ -13,8 +13,8 @@ public class Cyclops extends Character{
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 
-		sk2 = new Skill("Club Smash", "Deal damage to your opponent and lower their speed", 
-				"The cyclops smashes his opponent with his club, lowering their speed", 0.7, false,
+		sk2 = new Skill("Club Smash", "Deal damage to your opponent and lower their speed.", 
+				"The cyclops smashes his opponent with his club, lowering their speed.", 0.7, false,
 				false, false, false, 1.0, 1.0, 0.7, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 
@@ -24,13 +24,13 @@ public class Cyclops extends Character{
 				1.2, false, 1.0);
 
 		sk4 = new Skill("Thrash", "Deal massive damage but leave yourself exposed.", 
-				"The cyclops thrashes around.", 1.3, false,
+				"The cyclops thrashes around, leaving himself exposed.", 1.3, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 0.7, 1.0,
 				1.0, false, 1.0);
 
 		sk5 = new Skill("Skull Crusher", "Possibly deliver a stunning blow to your opponent.", 
-				"The cyclops attempts to stun his opponent", 0.5, false,
-				false, true, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+				"The cyclops attempts to stun his opponent.", 0.5, false,
+				true, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 
 
