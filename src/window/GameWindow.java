@@ -509,6 +509,16 @@ public class GameWindow {
 		        		rdbtnSkill3.setVisible(true);
 		        		rdbtnSkill4.setVisible(true);
 		        		rdbtnSkill5.setVisible(true);
+		        		rdbtnSkill1.setText(ch1.SK1().getSkillName());
+		        		rdbtnSkill2.setText(ch1.SK2().getSkillName());
+		        		rdbtnSkill3.setText(ch1.SK3().getSkillName());
+		        		rdbtnSkill4.setText(ch1.SK4().getSkillName());
+		        		rdbtnSkill5.setText(ch1.SK5().getSkillName());
+		        		rdbtnSkill1.setToolTipText(ch1.SK1().getSkillDescription());
+		        		rdbtnSkill2.setToolTipText(ch1.SK2().getSkillDescription());
+		        		rdbtnSkill3.setToolTipText(ch1.SK3().getSkillDescription());
+		        		rdbtnSkill4.setToolTipText(ch1.SK4().getSkillDescription());
+		        		rdbtnSkill5.setToolTipText(ch1.SK5().getSkillDescription());
 		        		btnConfirmMove.setVisible(true);
 		        		chooser1 = 1;
 		        		lblBattleText.setText("Player 1, select your move.");
