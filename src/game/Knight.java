@@ -3,13 +3,11 @@ package game;
 public class Knight extends Character {
 	public Knight() {
 		super();
-		health = 90;
-		maxHealth = 90;
-		mana = 40;
-		maxMana = 40;
+		health = 920;
+		maxHealth = 920;
 		power = .9;
-		defense = 1;
-		speed = 8;
+		defense = 1.2;
+		speed = 45;
 		sk1 = new Skill("goodasfkjdslkjh", "A quick slash of the sword.", 
 				"The bandit slashes with his sword!", 1.0, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,

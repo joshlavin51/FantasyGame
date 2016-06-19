@@ -3,28 +3,40 @@ package game;
 public class Cyclops extends Character{
 	public Cyclops(){
 		super();
-		health = 120;
-		maxHealth = 120;
-		mana = 25;
-		maxMana = 25;
+		health = 1200;
+		maxHealth = 1200;
 		power = 1.2;
-		defense = 1.1;
-		speed = 2;
-	}	
-	// Club Smash
-	public void skill1(Character target){
-		target.takeDamage((int)(10 * getPower() / target.getDefense()));
+		defense = .9;
+		speed = 20;
+		sk1 = new Skill("Clobber", "Clobber your opponent with your massive weapon.", 
+				"The cyclops clobbers his opponent.", 1.0, false,
+				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+				1.0, false, 1.0);
+
+		sk2 = new Skill("Club Smash", "Deal damage to your opponent and lower their speed", 
+				"The cyclops smashes his opponent with his club, lowering their speed", 0.7, false,
+				false, false, false, 1.0, 1.0, 0.7, 1.0, 1.0, 1.0,
+				1.0, false, 1.0);
+
+		sk3 = new Skill("Enrage", "Become enraged and raise your power and defense.", 
+				"The cyclops becomes enraged.", 0.0, false,
+				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.1, 1.0,
+				1.2, false, 1.0);
+
+		sk4 = new Skill("Thrash", "Deal massive damage but leave yourself exposed.", 
+				"The cyclops thrashes around.", 1.3, false,
+				false, false, false, 1.0, 1.0, 1.0, 1.0, 0.7, 1.0,
+				1.0, false, 1.0);
+
+		sk5 = new Skill("Skull Crusher", "Possibly deliver a stunning blow to your opponent.", 
+				"The cyclops attempts to stun his opponent", 0.5, false,
+				false, true, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+				1.0, false, 1.0);
+
+
+
+
 	}
-	public void skill2(Character target){
-		
-	}
-	public void skill3(Character target){
-		
-	}
-	public void skill4(Character target){
-		
-	}
-	public void skill5(Character target){
-		
-	}
+	
+	
 }

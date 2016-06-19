@@ -10,12 +10,12 @@ public class Skill {
 	private boolean goesFirst;
 	private boolean fullHealth;
 	private double fullHealthBonus;
-	private double lowersSpeed;
-	private double lowersOwnSpeed;
-	private double lowersDefense;
-	private double lowersOwnDefense;
-	private double lowersPower;
-	private double lowersOwnPower;
+	private double altersSpeed;
+	private double altersOwnSpeed;
+	private double altersDefense;
+	private double altersOwnDefense;
+	private double altersPower;
+	private double altersOwnPower;
 	private boolean restoresHealth;
 	private double healthRestore;
 	
@@ -34,12 +34,12 @@ public class Skill {
 		goesFirst = GoesFirst;
 		fullHealth = FullHealth;
 		fullHealthBonus = FullHealthBonus;
-		lowersSpeed = LowersSpeed;
-		lowersOwnSpeed = LowersOwnSpeed;
-		lowersDefense = LowersDefense;
-		lowersOwnDefense = LowersOwnDefense;
-		lowersPower = LowersPower;
-		lowersOwnPower = LowersOwnPower;
+		altersSpeed = LowersSpeed;
+		altersOwnSpeed = LowersOwnSpeed;
+		altersDefense = LowersDefense;
+		altersOwnDefense = LowersOwnDefense;
+		altersPower = LowersPower;
+		altersOwnPower = LowersOwnPower;
 		restoresHealth = RestoresHealth;
 		healthRestore = HealthRestore;
 		
@@ -73,11 +73,11 @@ public class Skill {
 	public double getFullHealthBonus(){
 		return fullHealthBonus;
 	}
-	public double getLowersSpeed(){
-		return lowersSpeed;
+	public double getAltersSpeed(){
+		return altersSpeed;
 	}
-	public double getLowersOwnSpeed(){
-		return lowersOwnSpeed;
+	public double getAltersOwnSpeed(){
+		return altersOwnSpeed;
 	}
 	public boolean getRestoresHealth(){
 		return restoresHealth;
@@ -85,17 +85,20 @@ public class Skill {
 	public double getHealthRestore(){
 		return healthRestore;
 	}
-	public double getLowersOwnPower(){
-		return lowersOwnPower;
+	public double getAltersOwnPower(){
+		return altersOwnPower;
 	}
-	public double getLowersPower(){
-		return lowersPower;
+	public double getAltersPower(){
+		return altersPower;
 	}
-	public double getLowersOwnDefense(){
-		return lowersOwnDefense;
+	public double getAltersOwnDefense(){
+		return altersOwnDefense;
 	}
-	public double getLowersDefense(){
-		return lowersDefense;
+	public double getAltersDefense(){
+		return altersDefense;
+	}
+	public void setDM(double amount) {
+		damageMultiplier = amount;
 	}
 
 
