@@ -3,9 +3,9 @@ package game;
 public class Dwarf extends Character{
 	public Dwarf(){
 		super();
-		health = 1070;
-		maxHealth = 1070;
-		power = .9;
+		health = 1020;
+		maxHealth = 1020;
+		power = .8;
 		defense = 1.2;
 		speed = 30;
 		name = "Dwaff";

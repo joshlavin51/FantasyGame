@@ -109,6 +109,7 @@ public class GameWindow {
 	private JLabel lblGameOver;
 	private JLabel lblP1Icon;
 	private JLabel lblP2Icon;
+	private JLabel lblRandomSprite;
 	
 	
 
@@ -148,6 +149,7 @@ public class GameWindow {
 		frame.getContentPane().setLayout(new CardLayout(0, 0));
 		
 		panelWelcome = new JPanel();
+		panelWelcome.setBackground(new Color(255, 255, 204));
 		frame.getContentPane().add(panelWelcome, "name_1786937010059022");
 		
 		btnStart = new JButton("Start");
@@ -163,15 +165,15 @@ public class GameWindow {
 			gl_panelWelcome.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panelWelcome.createSequentialGroup()
 					.addGap(266)
-					.addComponent(btnStart, GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+					.addComponent(btnStart, GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
 					.addGap(266))
 		);
 		gl_panelWelcome.setVerticalGroup(
-			gl_panelWelcome.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panelWelcome.createSequentialGroup()
-					.addGap(233)
-					.addComponent(btnStart, GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-					.addGap(113))
+			gl_panelWelcome.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panelWelcome.createSequentialGroup()
+					.addGap(279)
+					.addComponent(btnStart, GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+					.addGap(67))
 		);
 		panelWelcome.setLayout(gl_panelWelcome);
 		
@@ -260,7 +262,7 @@ public class GameWindow {
 		lblCh1Health = new JLabel("P1 Health:");
 		lblCh1Health.setForeground(new Color(255, 0, 0));
 		lblCh1Health.setFont(new Font("Copperplate Gothic Light", Font.PLAIN, 18));
-		lblCh1Health.setBounds(98, 11, 225, 23);
+		lblCh1Health.setBounds(98, 11, 262, 23);
 		panelGame.add(lblCh1Health);
 		
 		lblCh2Health = new JLabel("P2 Health:");
@@ -282,61 +284,73 @@ public class GameWindow {
 		
 		
 		panelChooseCharacter = new JPanel();
+		panelChooseCharacter.setBackground(new Color(255, 255, 204));
 		frame.getContentPane().add(panelChooseCharacter, "name_631367793784");
 		panelChooseCharacter.setLayout(null);
 		
 		rdbtnBandit = new JRadioButton("Bandit");
+		rdbtnBandit.setBackground(new Color(255, 255, 204));
 		rdbtnBandit.setSelected(true);
 		buttonGroup.add(rdbtnBandit);
 		rdbtnBandit.setBounds(6, 7, 109, 23);
 		panelChooseCharacter.add(rdbtnBandit);
 		
 		rdbtnWarrior = new JRadioButton("Warrior");
+		rdbtnWarrior.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnWarrior);
 		rdbtnWarrior.setBounds(6, 100, 109, 23);
 		panelChooseCharacter.add(rdbtnWarrior);
 		
 		rdbtnKnight = new JRadioButton("Knight");
+		rdbtnKnight.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnKnight);
 		rdbtnKnight.setBounds(6, 205, 109, 23);
 		panelChooseCharacter.add(rdbtnKnight);
 		
 		rdbtnDwarf = new JRadioButton("Dwarf");
+		rdbtnDwarf.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnDwarf);
 		rdbtnDwarf.setBounds(590, 7, 109, 23);
 		panelChooseCharacter.add(rdbtnDwarf);
 		
 		rdbtnDemon = new JRadioButton("Demon");
+		rdbtnDemon.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnDemon);
 		rdbtnDemon.setBounds(590, 205, 109, 23);
 		panelChooseCharacter.add(rdbtnDemon);
 		
 		rdbtnWerewolf = new JRadioButton("Werewolf");
+		rdbtnWerewolf.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnWerewolf);
 		rdbtnWerewolf.setBounds(590, 100, 109, 23);
 		panelChooseCharacter.add(rdbtnWerewolf);
 		
 		rdbtnRandom = new JRadioButton("Random");
+		rdbtnRandom.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnRandom);
 		rdbtnRandom.setBounds(590, 403, 109, 23);
 		panelChooseCharacter.add(rdbtnRandom);
 		
 		rdbtnWizard = new JRadioButton("Wizard");
+		rdbtnWizard.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnWizard);
 		rdbtnWizard.setBounds(6, 403, 109, 23);
 		panelChooseCharacter.add(rdbtnWizard);
 		
-		rdbtnCyclops = new JRadioButton("Dwayde");
+		rdbtnCyclops = new JRadioButton("Cyclops");
+		rdbtnCyclops.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnCyclops);
 		rdbtnCyclops.setBounds(6, 302, 109, 23);
 		panelChooseCharacter.add(rdbtnCyclops);
 		
-		rdbtnPirate = new JRadioButton("Argh");
+		rdbtnPirate = new JRadioButton("Pirate");
+		rdbtnPirate.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnPirate);
 		rdbtnPirate.setBounds(590, 302, 109, 23);
 		panelChooseCharacter.add(rdbtnPirate);
 		
 		JButton btnConfirm = new JButton("Confirm!");
+		btnConfirm.setFont(new Font("High Tower Text", Font.PLAIN, 18));
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (chooser == 1){
@@ -357,7 +371,7 @@ public class GameWindow {
 					rdbtnSkill3.setToolTipText(ch1.SK3().getSkillDescription());
 					rdbtnSkill4.setToolTipText(ch1.SK4().getSkillDescription());
 					rdbtnSkill5.setToolTipText(ch1.SK5().getSkillDescription());
-					
+					chooser = 1;
 					
 					panelChooseCharacter.setVisible(false);
 					panelGame.setVisible(true);
@@ -372,27 +386,42 @@ public class GameWindow {
 		
 		lblP1P2 = new JLabel("Player " + chooser + ": Choose your character");
 		lblP1P2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblP1P2.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblP1P2.setBounds(256, 324, 193, 14);
+		lblP1P2.setFont(new Font("High Tower Text", Font.PLAIN, 18));
+		lblP1P2.setBounds(218, 315, 268, 23);
 		panelChooseCharacter.add(lblP1P2);
 		
+		lblRandomSprite = new JLabel("");
+		lblRandomSprite.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/RandomSprite.png")));
+		lblRandomSprite.setBounds(277, 75, 150, 150);
+		panelChooseCharacter.add(lblRandomSprite);
+		
 		panelRestart = new JPanel();
+		panelRestart.setBackground(new Color(255, 255, 204));
 		frame.getContentPane().add(panelRestart, "name_1501485201390914");
 		panelRestart.setLayout(null);
 		
 		btnPlayAgain = new JButton("Play Again?");
-		btnPlayAgain.setBounds(308, 321, 89, 23);
+		btnPlayAgain.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				panelRestart.setVisible(false);
+				panelChooseCharacter.setVisible(true);
+				lblP1P2.setText("Player " + chooser + ": Choose your character");
+			}
+		});
+		btnPlayAgain.setFont(new Font("High Tower Text", Font.PLAIN, 18));
+		btnPlayAgain.setBounds(283, 279, 138, 49);
 		panelRestart.add(btnPlayAgain);
 		
 		lblWinner = new JLabel("Winner goes here");
+		lblWinner.setFont(new Font("High Tower Text", Font.PLAIN, 26));
 		lblWinner.setHorizontalAlignment(SwingConstants.CENTER);
-		lblWinner.setBounds(175, 181, 354, 14);
+		lblWinner.setBounds(175, 181, 354, 36);
 		panelRestart.add(lblWinner);
 		
 		lblGameOver = new JLabel("Game Over!");
 		lblGameOver.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGameOver.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblGameOver.setBounds(304, 89, 96, 36);
+		lblGameOver.setFont(new Font("Copperplate Gothic Bold", Font.PLAIN, 22));
+		lblGameOver.setBounds(258, 89, 188, 36);
 		panelRestart.add(lblGameOver);
 		
 	}
@@ -635,10 +664,10 @@ public class GameWindow {
 			ch1.setDefense(dummy1.getDefense());
 		}
 		if (skl1.getSkillName().equals("Momentous Slam")){
-			skl1.setDM(.37 + ch1.getSpeed() / 100);
+			skl1.setDM(.37 + ch1.getSpeed() / 100.0);
 		}
-		if (skl1.getSkillName().equals("Outmanuever")){
-			skl1.setDM(.40 + ch2.getSpeed() / 100);
+		if (skl1.getSkillName().equals("Outmaneuver")){
+			skl1.setDM(.40 + ch2.getSpeed() / 100.0);
 		}
 		if (skl1.getSkillName().equals("Dragon Slayer") ||
 				skl1.getSkillName().equals("Giant Slayer")){
@@ -730,10 +759,10 @@ public class GameWindow {
 			ch2.setDefense(dummy2.getDefense());
 		}
 		if (skl2.getSkillName().equals("Momentous Slam")){
-			skl2.setDM(.37 + ch2.getSpeed() / 100);
+			skl2.setDM(.37 + ch2.getSpeed() / 100.0);
 		}
-		if (skl2.getSkillName().equals("Outmanuever")){
-			skl2.setDM(.40 + ch1.getSpeed() / 100);
+		if (skl2.getSkillName().equals("Outmaneuver")){
+			skl2.setDM(.40 + ch1.getSpeed() / 100.0);
 		}
 		if (skl2.getSkillName().equals("Dragon Slayer")||
 				skl2.getSkillName().equals("Giant Slayer")){
