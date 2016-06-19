@@ -2,6 +2,7 @@ package game;
 
 public abstract class Character {
 // Character info	
+	protected String name;
 	protected int health;
 	protected int maxHealth;
 	protected double power;
@@ -12,6 +13,7 @@ public abstract class Character {
 	protected Skill sk3;
 	protected Skill sk4;
 	protected Skill sk5;
+	protected boolean stunned = false;
 	
 
 
@@ -54,11 +56,17 @@ public abstract class Character {
 	public Skill SK5(){
 		return sk5;
 	}
+	public boolean getStunned(){
+		return stunned;
+	}
+	public String getName(){
+		return name;
+	}
 
 // Action methods
 	// Restores character's health by set amount
 	public void restoreHealth(double amount){
-		health += maxHealth * (1 - amount) ;
+		health += maxHealth *  amount ;
 		if(health > maxHealth){
 			health = maxHealth;
 		}
@@ -93,6 +101,9 @@ public abstract class Character {
 	}
 	public void setDefense(double amount){
 		power = amount;
+	} 
+	public void setStun(boolean yn){
+		stunned = yn;
 	}
 
 	

@@ -60,6 +60,8 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class GameWindow {
 	private JFrame frame;
@@ -79,6 +81,8 @@ public class GameWindow {
 	private int chooser = 1;
 	private int chooser1 = 1;
 	private JLabel lblP1P2;
+	private int forgeCount1 = 0;
+	private int forgeCount2 = 0;
 	
 	private JRadioButton rdbtnBandit;
 	private JRadioButton rdbtnWarrior;
@@ -103,6 +107,8 @@ public class GameWindow {
 	private JLabel lblWinner;
 	private JButton btnPlayAgain;
 	private JLabel lblGameOver;
+	private JLabel lblP1Icon;
+	private JLabel lblP2Icon;
 	
 	
 
@@ -145,6 +151,7 @@ public class GameWindow {
 		frame.getContentPane().add(panelWelcome, "name_1786937010059022");
 		
 		btnStart = new JButton("Start");
+		btnStart.setFont(new Font("High Tower Text", Font.BOLD, 24));
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelWelcome.setVisible(false);
@@ -169,36 +176,48 @@ public class GameWindow {
 		panelWelcome.setLayout(gl_panelWelcome);
 		
 		panelGame = new JPanel();
+		panelGame.setBackground(new Color(255, 255, 204));
 		frame.getContentPane().add(panelGame, "name_1786947344248301");
 		panelGame.setLayout(null);
 		
 		rdbtnSkill1 = new JRadioButton(dummy.SK1().getSkillName());
+		rdbtnSkill1.setFont(new Font("High Tower Text", Font.PLAIN, 14));
+		rdbtnSkill1.setBackground(new Color(255, 255, 204));
 		rdbtnSkill1.setSelected(true);
 		buttonGroup.add(rdbtnSkill1);
 		rdbtnSkill1.setBounds(6, 195, 161, 23);
 		panelGame.add(rdbtnSkill1);
 		
 		rdbtnSkill2 = new JRadioButton(dummy.SK2().getSkillName());
+		rdbtnSkill2.setFont(new Font("High Tower Text", Font.PLAIN, 14));
+		rdbtnSkill2.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnSkill2);
 		rdbtnSkill2.setBounds(6, 235, 161, 23);
 		panelGame.add(rdbtnSkill2);
 		
 		rdbtnSkill3 = new JRadioButton(dummy.SK3().getSkillName());
+		rdbtnSkill3.setFont(new Font("High Tower Text", Font.PLAIN, 14));
+		rdbtnSkill3.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnSkill3);
 		rdbtnSkill3.setBounds(6, 275, 161, 23);
 		panelGame.add(rdbtnSkill3);
 		
 		rdbtnSkill4 = new JRadioButton(dummy.SK4().getSkillName());
+		rdbtnSkill4.setFont(new Font("High Tower Text", Font.PLAIN, 14));
+		rdbtnSkill4.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnSkill4);
 		rdbtnSkill4.setBounds(6, 315, 161, 23);
 		panelGame.add(rdbtnSkill4);
 		
 		rdbtnSkill5 = new JRadioButton(dummy.SK5().getSkillName());
+		rdbtnSkill5.setFont(new Font("High Tower Text", Font.PLAIN, 14));
+		rdbtnSkill5.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnSkill5);
 		rdbtnSkill5.setBounds(6, 355, 161, 23);
 		panelGame.add(rdbtnSkill5);
 		
 		btnConfirmMove = new JButton("Select");
+		btnConfirmMove.setFont(new Font("High Tower Text", Font.PLAIN, 16));
 		btnConfirmMove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (chooser1 == 1){
@@ -230,20 +249,36 @@ public class GameWindow {
 				
 			}
 		});
-		btnConfirmMove.setBounds(6, 385, 161, 37);
+		btnConfirmMove.setBounds(6, 385, 131, 37);
 		panelGame.add(btnConfirmMove);
 		
 		lblBattleText = new JLabel("Text goes here");
-		lblBattleText.setBounds(199, 386, 442, 34);
+		lblBattleText.setFont(new Font("High Tower Text", Font.PLAIN, 16));
+		lblBattleText.setBounds(147, 386, 548, 34);
 		panelGame.add(lblBattleText);
 		
 		lblCh1Health = new JLabel("P1 Health:");
-		lblCh1Health.setBounds(199, 11, 161, 14);
+		lblCh1Health.setForeground(new Color(255, 0, 0));
+		lblCh1Health.setFont(new Font("Copperplate Gothic Light", Font.PLAIN, 18));
+		lblCh1Health.setBounds(98, 11, 225, 23);
 		panelGame.add(lblCh1Health);
 		
 		lblCh2Health = new JLabel("P2 Health:");
-		lblCh2Health.setBounds(434, 11, 161, 14);
+		lblCh2Health.setForeground(new Color(255, 0, 0));
+		lblCh2Health.setFont(new Font("Copperplate Gothic Light", Font.PLAIN, 18));
+		lblCh2Health.setBounds(370, 11, 261, 23);
 		panelGame.add(lblCh2Health);
+		
+		lblP1Icon = new JLabel("");
+		lblP1Icon.setBackground(new Color(255, 255, 255));
+		lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/CyclopsLeft.png")));
+		lblP1Icon.setBounds(173, 126, 172, 150);
+		panelGame.add(lblP1Icon);
+		
+		lblP2Icon = new JLabel("");
+		lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/CyclopsRight.png")));
+		lblP2Icon.setBounds(402, 126, 167, 150);
+		panelGame.add(lblP2Icon);
 		
 		
 		panelChooseCharacter = new JPanel();
@@ -374,30 +409,39 @@ public class GameWindow {
 	private void setCharacter1(){
 		if (rdbtnBandit.isSelected() == true){
 			ch1 = new Bandit();
+			
 		}
 		else if (rdbtnWarrior.isSelected() == true){
 			ch1 = new Warrior();
+			
 		}
 		else if (rdbtnKnight.isSelected() == true){
 			ch1 = new Knight();
+			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/KnightRight.png")));
 		}
 		else if (rdbtnCyclops.isSelected() == true){
 			ch1 = new Cyclops();
+			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/CyclopsRight.png")));
 		}
 		else if (rdbtnWizard.isSelected() == true){
 			ch1 = new Wizard();
+			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WizardRight.png")));
 		}
 		else if (rdbtnDemon.isSelected() == true){
 			ch1 = new Demon();
+			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DemonRight.png")));
 		}
 		else if (rdbtnDwarf.isSelected() == true){
 			ch1 = new Dwarf();
+			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DwarfRight.png")));
 		}
 		else if (rdbtnWerewolf.isSelected() == true){
 			ch1 = new Werewolf();
+			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WerewolfRight.png")));
 		}
 		else if (rdbtnPirate.isSelected() == true){
 			ch1 = new Pirate();
+			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/PirateRight.png")));
 		}
 		else {
 			ch1 = new Bandit();
@@ -412,24 +456,31 @@ public class GameWindow {
 		}
 		else if (rdbtnKnight.isSelected() == true){
 			ch2 = new Knight();
+			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/KnightLeft.png")));
 		}
 		else if (rdbtnCyclops.isSelected() == true){
 			ch2 = new Cyclops();
+			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/CyclopsLeft.png")));
 		}
 		else if (rdbtnWizard.isSelected() == true){
 			ch2 = new Wizard();
+			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WizardLeft.png")));
 		}
 		else if (rdbtnDemon.isSelected() == true){
 			ch2 = new Demon();
+			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DemonLeft.png")));
 		}
 		else if (rdbtnDwarf.isSelected() == true){
 			ch2 = new Dwarf();
+			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DwarfLeft.png")));
 		}
 		else if (rdbtnWerewolf.isSelected() == true){
 			ch2 = new Werewolf();
+			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WerewolfLeft.png")));
 		}
 		else if (rdbtnPirate.isSelected() == true){
 			ch2 = new Pirate();
+			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/PirateLeft.png")));
 		}
 		else {
 			ch2 = new Bandit();
@@ -471,30 +522,31 @@ public class GameWindow {
 	}
 	public void battleStart(){
 		if (skl1.getGoesFirst() == true &&  skl2.getGoesFirst() == false){
-			battle1();
+			
+			checkStun1();
 			new java.util.Timer().schedule( 
 			        new java.util.TimerTask() {
 			            @Override
 			            public void run() {
-			            	battle2();
+			            	checkStun2();
 			            }
 			        }, 
-			        3000 
+			        5000 
 			); if (ch1.getHealth() == 0 || ch2.getHealth() == 0){
 				
 			}
 			
 		}	
 		else if (skl2.getGoesFirst() == true && skl1.getGoesFirst() == false){
-			battle2();
+			checkStun2();
 			new java.util.Timer().schedule( 
 			        new java.util.TimerTask() {
 			            @Override
 			            public void run() {
-			            	battle1();
+			            	checkStun1();
 			            }
 			        }, 
-			        3000 
+			        5000 
 			); 
 			
 		} else {
@@ -525,7 +577,7 @@ public class GameWindow {
 		        		
 		            }
 		        }, 
-		        6000 
+		        10000 
 		);
 		
 	}
@@ -537,28 +589,28 @@ public class GameWindow {
 		speedRatio += ch1.getSpeed() - ch2.getSpeed();
 		if(rand.nextInt(100) >= speedRatio){
 			// P2 goes first
-			battle2();
+			checkStun2();
 			new java.util.Timer().schedule( 
 			        new java.util.TimerTask() {
 			            @Override
 			            public void run() {
-			            	battle1();
+			            	checkStun1();
 			            }
 			        }, 
-			        3000 
+			        5000 
 			);
 			
 			
 		} else {
-			battle1();
+			checkStun1();
 			new java.util.Timer().schedule( 
 			        new java.util.TimerTask() {
 			            @Override
 			            public void run() {
-			            	battle2();
+			            	checkStun2();
 			            }
 			        }, 
-			        3000 
+			        5000 
 			);
 			
 		}
@@ -566,22 +618,40 @@ public class GameWindow {
 	}
 	public void battle1(){
 		// Character Specifics
-		int forgeCount1 = 0;
 		if (skl1.getSkillName().equals("Forge Armor")){
 			forgeCount1++;
 		}
 		if (skl1.getSkillName().equals("Critical Strike")){
 			Random rnd = new Random();
 			if (rnd.nextInt(3) == 0){
-				skl1.setDM(1.6);
+				skl1.setDM(1.7);
 			} else {
-				skl1.setDM(.7);
+				skl1.setDM(.75);
 			}
 		}
-		if (skl1.getSkillName().equals("Feed the fire")){
+		if (skl1.getSkillName().equals("Feed the Fire")){
 			skl1.setDM(skl1.getDamageMultiplier() + .3 * forgeCount1);
 			forgeCount1 = 0;
 			ch1.setDefense(dummy1.getDefense());
+		}
+		if (skl1.getSkillName().equals("Momentous Slam")){
+			skl1.setDM(.37 + ch1.getSpeed() / 100);
+		}
+		if (skl1.getSkillName().equals("Outmanuever")){
+			skl1.setDM(.40 + ch2.getSpeed() / 100);
+		}
+		if (skl1.getSkillName().equals("Dragon Slayer") ||
+				skl1.getSkillName().equals("Giant Slayer")){
+			skl1.setDM(.9 * ch2.getPower());
+		}
+		if (skl1.getSkillName().equals("Decimate")){
+			skl1.setDM(.7 + (((double)ch2.getMaxHealth()- (double)ch2.getHealth())/900.0));
+		}
+		if (skl1.getStuns() == true){
+			Random rn = new Random();
+			if (rn.nextBoolean() == true){
+				ch2.setStun(true);
+			}
 		}
 		
 		/*
@@ -635,23 +705,23 @@ public class GameWindow {
 
 		            }
 		        }, 
-		        3000 
+		        5000 
 		);
 		}
 	}
 	
 	private void battle2() {
 		// Character specifics
-		int forgeCount2 = 0;
+		
 		if (skl2.getSkillName().equals("Forge Armor")){
 			forgeCount2++;
 		}
 		if (skl2.getSkillName().equals("Critical Strike")){
 			Random rnd = new Random();
 			if (rnd.nextInt(3) == 0){
-				skl2.setDM(1.6);
+				skl2.setDM(1.7);
 			} else {
-				skl2.setDM(.7);
+				skl2.setDM(.75);
 			}
 		}
 		if (skl2.getSkillName().equals("Feed the fire")){
@@ -659,13 +729,33 @@ public class GameWindow {
 			forgeCount2 = 0;
 			ch2.setDefense(dummy2.getDefense());
 		}
-		
+		if (skl2.getSkillName().equals("Momentous Slam")){
+			skl2.setDM(.37 + ch2.getSpeed() / 100);
+		}
+		if (skl2.getSkillName().equals("Outmanuever")){
+			skl2.setDM(.40 + ch1.getSpeed() / 100);
+		}
+		if (skl2.getSkillName().equals("Dragon Slayer")||
+				skl2.getSkillName().equals("Giant Slayer")){
+			skl2.setDM(.9 * ch1.getPower());
+		}
+		if (skl2.getSkillName().equals("Decimate")){
+			skl2.setDM(.7 + (ch2.getMaxHealth()- ch2.getHealth())/1000);
+		}
+		if (skl2.getStuns() == true){
+			Random rn = new Random();
+			if (rn.nextBoolean() == true){
+				ch1.setStun(true);
+			}
+		}
 		/*
 		 * 
 		 * 
 		 * 
 		 */
-		
+		if (skl2.getFullHealth() == true && ch1.getHealth() == ch1.getMaxHealth()){
+			skl2.setDM(skl2.getDamageMultiplier() + skl2.getFullHealthBonus());
+		}
 		ch1.takeDamage(200 * ch2.getPower() / ch1.getDefense() * skl2.getDamageMultiplier());
 		
 		// Removes negative Stats
@@ -689,8 +779,8 @@ public class GameWindow {
 		ch2.alterDefense(skl2.getAltersOwnDefense());
 		ch2.alterSpeed(skl2.getAltersOwnSpeed());
 		
-		if (skl1.getRestoresHealth() == true){
-			ch1.restoreHealth(skl1.getHealthRestore());
+		if (skl2.getRestoresHealth() == true){
+			ch2.restoreHealth(skl2.getHealthRestore());
 		}
 		lblBattleText.setText(skl2.getUsedSkill());
 		lblCh1Health.setText("P1 Health: " + (int) ch1.getHealth()+ "/" + (int) ch1.getMaxHealth());
@@ -705,7 +795,7 @@ public class GameWindow {
 
 		            }
 		        }, 
-		        3000 
+		        5000 
 		);
 		}
 	}
@@ -716,8 +806,26 @@ public class GameWindow {
 			lblWinner.setText("Player 1 wins!");
 		} if (ch2.getHealth() > ch1.getHealth()){
 			lblWinner.setText("Player 2 wins!");
-		} if (ch1.getHealth() == ch2.getHealth()){
+		} if (ch1.getHealth() == 0 && ch2.getHealth() == 0){
 			lblWinner.setText("Draw!");
+		}
+	}
+	public void checkStun1(){
+		if (ch1.getStunned() == true){
+			lblBattleText.setText(ch1.getName() + " is stunned and cannot move!");
+			ch1.setStun(false);
+		} else {
+			battle1();
+		}
+		
+	}
+	public void checkStun2(){
+		if (ch2.getStunned() == true){
+			lblBattleText.setText(ch2.getName() + " is stunned and cannot move!");
+			ch1.setStun(false);
+		} 
+		else {
+			battle2();
 		}
 	}
 }
