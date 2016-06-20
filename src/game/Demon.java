@@ -9,7 +9,7 @@ public class Demon extends Character{
 		power = 1.3;
 		defense = .7;
 		speed = 70;
-		name = "Jewathus";
+		name = "The Demon Warrior";
 		sk1 = new Skill("Impale", "Stab your opponent with your spear.", 
 				this.getName() + " impales its opponent.", 1.0, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,

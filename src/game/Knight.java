@@ -14,12 +14,12 @@ public class Knight extends Character {
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 
-		sk2 = new Skill("Charge", "Strike before your opponent has a chance to.", 
+		sk2 = new Skill("Charge", "Strike before your opponent has a chance.", 
 				this.getName() + " strikes before his opponent can prepare.", 0.7, false,
 				false, true, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 
-		sk3 = new Skill("Shield Bash", "Possibly deliver a stunning blow to your opponent", 
+		sk3 = new Skill("Shield Bash", "Possibly deliver a stunning blow to your opponent.", 
 				this.getName() + " bashes his opponent with his shield in an attempt to stun them.", 0.5, false,
 				true, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, .5);

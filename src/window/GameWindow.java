@@ -110,6 +110,8 @@ public class GameWindow {
 	private JLabel lblP1Icon;
 	private JLabel lblP2Icon;
 	private JLabel lblRandomSprite;
+	private JLabel lblCh2Name;
+	private JLabel lblCh1Name;
 	
 	
 
@@ -282,6 +284,19 @@ public class GameWindow {
 		lblP2Icon.setBounds(402, 126, 167, 150);
 		panelGame.add(lblP2Icon);
 		
+		lblCh1Name = new JLabel("P1 Name");
+		lblCh1Name.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCh1Name.setFont(new Font("High Tower Text", Font.PLAIN, 20));
+		lblCh1Name.setBounds(160, 81, 172, 37);
+		panelGame.add(lblCh1Name);
+		
+		lblCh2Name = new JLabel("P2 Name");
+		lblCh2Name.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCh2Name.setFont(new Font("High Tower Text", Font.PLAIN, 20));
+		lblCh2Name.setEnabled(true);
+		lblCh2Name.setBounds(385, 81, 172, 37);
+		panelGame.add(lblCh2Name);
+		
 		
 		panelChooseCharacter = new JPanel();
 		panelChooseCharacter.setBackground(new Color(255, 255, 204));
@@ -295,7 +310,7 @@ public class GameWindow {
 		rdbtnBandit.setBounds(6, 7, 109, 23);
 		panelChooseCharacter.add(rdbtnBandit);
 		
-		rdbtnWarrior = new JRadioButton("Warrior");
+		rdbtnWarrior = new JRadioButton("Orc Warrior");
 		rdbtnWarrior.setBackground(new Color(255, 255, 204));
 		buttonGroup.add(rdbtnWarrior);
 		rdbtnWarrior.setBounds(6, 100, 109, 23);
@@ -438,23 +453,29 @@ public class GameWindow {
 	private void setCharacter1(){
 		if (rdbtnBandit.isSelected() == true){
 			ch1 = new Bandit();
+			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DesertBanditRight.png")));
+			lblCh1Name.setText(ch1.getName());
 			
 		}
 		else if (rdbtnWarrior.isSelected() == true){
 			ch1 = new Warrior();
-			
+			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/OrcRight.png")));
+			lblCh1Name.setText(ch1.getName());
 		}
 		else if (rdbtnKnight.isSelected() == true){
 			ch1 = new Knight();
 			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/KnightRight.png")));
+			lblCh1Name.setText(ch1.getName());
 		}
 		else if (rdbtnCyclops.isSelected() == true){
 			ch1 = new Cyclops();
 			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/CyclopsRight.png")));
+			lblCh1Name.setText(ch1.getName());
 		}
 		else if (rdbtnWizard.isSelected() == true){
 			ch1 = new Wizard();
 			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WizardRight.png")));
+			lblCh1Name.setText(ch1.getName());
 		}
 		else if (rdbtnDemon.isSelected() == true){
 			ch1 = new Demon();
@@ -463,56 +484,167 @@ public class GameWindow {
 		else if (rdbtnDwarf.isSelected() == true){
 			ch1 = new Dwarf();
 			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DwarfRight.png")));
+			lblCh1Name.setText(ch1.getName());
 		}
 		else if (rdbtnWerewolf.isSelected() == true){
 			ch1 = new Werewolf();
 			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WerewolfRight.png")));
+			lblCh1Name.setText(ch1.getName());
 		}
 		else if (rdbtnPirate.isSelected() == true){
 			ch1 = new Pirate();
 			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/PirateRight.png")));
+			lblCh1Name.setText(ch1.getName());
 		}
 		else {
-			ch1 = new Bandit();
+			Random rando = new Random();
+			int in = rando.nextInt(9); 
+			if (in == 0){
+				ch1 = new Bandit();
+				lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DesertBanditRight.png")));
+				lblCh1Name.setText(ch1.getName());
+				
+			}
+			else if (in == 1){
+				ch1 = new Warrior();
+				lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/OrcRight.png")));
+				lblCh1Name.setText(ch1.getName());
+				
+			}
+			else if (in == 2){
+				ch1 = new Knight();
+				lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/KnightRight.png")));
+				lblCh1Name.setText(ch1.getName());
+			}
+			else if (in == 3){
+				ch1 = new Cyclops();
+				lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/CyclopsRight.png")));
+				lblCh1Name.setText(ch1.getName());
+			}
+			else if (in == 4){
+				ch1 = new Wizard();
+				lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WizardRight.png")));
+				lblCh1Name.setText(ch1.getName());
+			}
+			else if (in == 5){
+				ch1 = new Demon();
+				lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DemonRight.png")));
+				lblCh1Name.setText(ch1.getName());
+			}
+			else if (in == 6){
+				ch1 = new Dwarf();
+				lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DwarfRight.png")));
+				lblCh1Name.setText(ch1.getName());
+			}
+			else if (in == 7){
+				ch1 = new Werewolf();
+				lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WerewolfRight.png")));
+				lblCh1Name.setText(ch1.getName());
+			}
+			else if (in == 8){
+				ch1 = new Pirate();
+				lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/PirateRight.png")));
+				lblCh1Name.setText(ch1.getName());
+			}
+			
 		}
 	}
 	private void setCharacter2(){
 		if (rdbtnBandit.isSelected() == true){
 			ch2 = new Bandit();
+			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DesertBanditLeft.png")));
+			lblCh2Name.setText(ch2.getName());
 		}
 		else if (rdbtnWarrior.isSelected() == true){
 			ch2 = new Warrior();
+			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/OrcLeft.png")));
+			lblCh2Name.setText(ch2.getName());
 		}
 		else if (rdbtnKnight.isSelected() == true){
 			ch2 = new Knight();
 			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/KnightLeft.png")));
+			lblCh2Name.setText(ch2.getName());
 		}
 		else if (rdbtnCyclops.isSelected() == true){
 			ch2 = new Cyclops();
 			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/CyclopsLeft.png")));
+			lblCh2Name.setText(ch2.getName());
 		}
 		else if (rdbtnWizard.isSelected() == true){
 			ch2 = new Wizard();
 			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WizardLeft.png")));
+			lblCh2Name.setText(ch2.getName());
 		}
 		else if (rdbtnDemon.isSelected() == true){
 			ch2 = new Demon();
 			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DemonLeft.png")));
+			lblCh2Name.setText(ch2.getName());
 		}
 		else if (rdbtnDwarf.isSelected() == true){
 			ch2 = new Dwarf();
 			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DwarfLeft.png")));
+			lblCh2Name.setText(ch2.getName());
+			
 		}
 		else if (rdbtnWerewolf.isSelected() == true){
 			ch2 = new Werewolf();
 			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WerewolfLeft.png")));
+			lblCh2Name.setText(ch2.getName());
 		}
 		else if (rdbtnPirate.isSelected() == true){
 			ch2 = new Pirate();
 			lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/PirateLeft.png")));
+			lblCh2Name.setText(ch2.getName());
 		}
 		else {
-			ch2 = new Bandit();
+			Random rando = new Random();
+			int in = rando.nextInt(9); 
+			if (in == 0){
+				ch2 = new Bandit();
+				lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DesertBanditLeft.png")));
+				lblCh2Name.setText(ch2.getName());
+				
+			}
+			else if (in == 1){
+				ch2 = new Warrior();
+				lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/OrcLeft.png")));;
+				lblCh2Name.setText(ch2.getName());
+			}
+			else if (in == 2){
+				ch2 = new Knight();
+				lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/KnightLeft.png")));
+				lblCh2Name.setText(ch2.getName());
+			}
+			else if (in == 3){
+				ch2 = new Cyclops();
+				lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/CyclopsLeft.png")));
+				lblCh2Name.setText(ch2.getName());
+			}
+			else if (in == 4){
+				ch2 = new Wizard();
+				lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WizardLeft.png")));
+				lblCh2Name.setText(ch2.getName());
+			}
+			else if (in == 5){
+				ch2 = new Demon();
+				lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DemonLeft.png")));
+				lblCh2Name.setText(ch2.getName());
+			}
+			else if (in == 6){
+				ch2 = new Dwarf();
+				lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DwarfLeft.png")));
+				lblCh2Name.setText(ch2.getName());
+			}
+			else if (in == 7){
+				ch2 = new Werewolf();
+				lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/WerewolfLeft.png")));
+				lblCh2Name.setText(ch2.getName());
+			}
+			else if (in == 8){
+				ch2 = new Pirate();
+				lblP2Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/PirateLeft.png")));
+				lblCh2Name.setText(ch2.getName());
+			}
 		}
 	}
 	public void setSkill1(){

@@ -8,14 +8,14 @@ public class Dwarf extends Character{
 		power = .8;
 		defense = 1.2;
 		speed = 30;
-		name = "Dwaff";
+		name = "The Dwarf";
 		sk1 = new Skill("Pound", "Hit your opponent with your hammer.", 
-				this.getName() + " pounds his opponent with his lovehammer", 1.0, false,
+				this.getName() + " pounds his opponent with his hammer.", 1.0, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 
 		sk2 = new Skill("Forge Armor", "Forge more powerful armor and increase your Defenses.", 
-				this.getName() + " makes new armor in preparation for battle", 0.0, false,
+				this.getName() + " makes new armor in preparation for battle.", 0.0, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.3, 1.0,
 				1.0, false, 1.0);
 

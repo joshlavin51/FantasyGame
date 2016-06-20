@@ -27,9 +27,9 @@ public class Bandit extends Character {
 				false, false, true, 1.2, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 
-		sk5 = new Skill("Counter", "Counter your opponent's move.", 
-				"The desert bandit delivers a counterattack.", 0.0, false,
-				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+		sk5 = new Skill("Scorpion Sting", "Strikes the opponent like a scorpion, lowering their defense.", 
+				this.getName() +" lashes out, lowering his opponent's defense.", 0.8, false,
+				false, false, false, 1.0, 1.0, 1.0, 0.8, 1.0, 1.0,
 				1.0, false, 1.0);
 		
 	}

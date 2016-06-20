@@ -8,8 +8,8 @@ public class Cyclops extends Character{
 		power = 1.1;
 		defense = .9;
 		speed = 20;
-		name = "Dwayde";
-		sk1 = new Skill("Clobber", "Clobber your opponent with your massive weapon.", 
+		name = "The Cyclops";
+		sk1 = new Skill("Clobber", "Clobber your opponent with your massive fists.", 
 				this.getName() + " clobbers his opponent.", 1.0, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);

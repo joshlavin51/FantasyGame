@@ -9,19 +9,19 @@ public class Wizard extends Character{
 		power = 1.2;
 		defense = .9;
 		speed = 52;
-		name = "Ethanus Otherbeard";
+		name = "The Wizard";
 		sk1 = new Skill("Fireball", "Shoots a powerful ball of flame at the opponent.", 
-				this.getName() + " blasts his opponent with fire", 1.0, false,
+				this.getName() + " blasts his opponent with fire.", 1.0, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 
 		sk2 = new Skill("Winter’s Breath", "Freeze your opponent in their tracks.", 
-				this.getName() + " blows icy winds on their opponent, slowing them", 0.6, false,
+				this.getName() + " blows icy winds on their opponent, slowing them.", 0.6, false,
 				false, false, false, 1.0, 0.7, 1.0, 1.0, 1.0, 1.0,
 				1.0, false, 1.0);
 
-		sk3 = new Skill("Nature’s touch", "Remove all negative status effects and heal you slightly", 
-				this.getName() + " becomes one with nature", 0.0, true,
+		sk3 = new Skill("Nature’s touch", "Remove all negative status effects and heal you slightly.", 
+				this.getName() + " becomes one with nature.", 0.0, true,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
 				1.0, true, .2);
 

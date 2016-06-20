@@ -8,7 +8,7 @@ public class Werewolf extends Character{
 		power = 1;
 		defense = 1;
 		speed = 63;
-		name = "Wendy";
+		name = "The Werewolf";
 		sk1 = new Skill("Crunch", "Viciously bite your opponent.", 
 				this.getName() + " crunches down on her opponent.", 1.0, false,
 				false, false, false, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
