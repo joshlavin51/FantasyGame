@@ -162,20 +162,30 @@ public class GameWindow {
 				panelChooseCharacter.setVisible(true);
 			}
 		});
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/Title-Logo.png")));
 		GroupLayout gl_panelWelcome = new GroupLayout(panelWelcome);
 		gl_panelWelcome.setHorizontalGroup(
-			gl_panelWelcome.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelWelcome.createSequentialGroup()
-					.addGap(266)
-					.addComponent(btnStart, GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-					.addGap(266))
-		);
-		gl_panelWelcome.setVerticalGroup(
 			gl_panelWelcome.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panelWelcome.createSequentialGroup()
-					.addGap(279)
-					.addComponent(btnStart, GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-					.addGap(67))
+					.addGroup(gl_panelWelcome.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panelWelcome.createSequentialGroup()
+							.addGap(270)
+							.addComponent(btnStart, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panelWelcome.createSequentialGroup()
+							.addGap(146)
+							.addComponent(lblNewLabel)))
+					.addContainerGap(161, Short.MAX_VALUE))
+		);
+		gl_panelWelcome.setVerticalGroup(
+			gl_panelWelcome.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_panelWelcome.createSequentialGroup()
+					.addContainerGap(35, Short.MAX_VALUE)
+					.addComponent(lblNewLabel)
+					.addGap(29)
+					.addComponent(btnStart, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+					.addGap(46))
 		);
 		panelWelcome.setLayout(gl_panelWelcome);
 		
@@ -287,6 +297,7 @@ public class GameWindow {
 		lblCh1Name = new JLabel("P1 Name");
 		lblCh1Name.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCh1Name.setFont(new Font("High Tower Text", Font.PLAIN, 20));
+		lblCh1Name.setEnabled(true);
 		lblCh1Name.setBounds(160, 81, 172, 37);
 		panelGame.add(lblCh1Name);
 		
@@ -294,7 +305,7 @@ public class GameWindow {
 		lblCh2Name.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCh2Name.setFont(new Font("High Tower Text", Font.PLAIN, 20));
 		lblCh2Name.setEnabled(true);
-		lblCh2Name.setBounds(385, 81, 172, 37);
+		lblCh2Name.setBounds(385, 81, 192, 37);
 		panelGame.add(lblCh2Name);
 		
 		
@@ -480,6 +491,7 @@ public class GameWindow {
 		else if (rdbtnDemon.isSelected() == true){
 			ch1 = new Demon();
 			lblP1Icon.setIcon(new ImageIcon(GameWindow.class.getResource("/resources/DemonRight.png")));
+			lblCh1Name.setText(ch1.getName());
 		}
 		else if (rdbtnDwarf.isSelected() == true){
 			ch1 = new Dwarf();
@@ -965,9 +977,9 @@ public class GameWindow {
 		panelRestart.setVisible(true);
 		if (ch1.getHealth() > ch2.getHealth()){
 			lblWinner.setText("Player 1 wins!");
-		} if (ch2.getHealth() > ch1.getHealth()){
+		} else if (ch2.getHealth() > ch1.getHealth()){
 			lblWinner.setText("Player 2 wins!");
-		} if (ch1.getHealth() == 0 && ch2.getHealth() == 0){
+		} else if (ch1.getHealth() == 0 && ch2.getHealth() == 0){
 			lblWinner.setText("Draw!");
 		}
 	}
