@@ -298,7 +298,7 @@ public class GameWindow {
 		lblCh1Name.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCh1Name.setFont(new Font("High Tower Text", Font.PLAIN, 20));
 		lblCh1Name.setEnabled(true);
-		lblCh1Name.setBounds(160, 81, 172, 37);
+		lblCh1Name.setBounds(160, 81, 182, 37);
 		panelGame.add(lblCh1Name);
 		
 		lblCh2Name = new JLabel("P2 Name");
@@ -701,11 +701,14 @@ public class GameWindow {
 			        new java.util.TimerTask() {
 			            @Override
 			            public void run() {
-			            	checkStun2();
+			            	if(ch1.getHealth() != 0 && ch2.getHealth() != 0){
+			            		checkStun2();
+			            	}
 			            }
 			        }, 
 			        5000 
-			); if (ch1.getHealth() == 0 || ch2.getHealth() == 0){
+			); 
+			if (ch1.getHealth() != 0 && ch2.getHealth() != 0){
 				
 			}
 			
@@ -716,7 +719,9 @@ public class GameWindow {
 			        new java.util.TimerTask() {
 			            @Override
 			            public void run() {
-			            	checkStun1();
+			            	if(ch1.getHealth() != 0 && ch2.getHealth() != 0){
+			            		checkStun1();
+			            	}
 			            }
 			        }, 
 			        5000 
@@ -767,7 +772,9 @@ public class GameWindow {
 			        new java.util.TimerTask() {
 			            @Override
 			            public void run() {
-			            	checkStun1();
+			            	if(ch1.getHealth() != 0 && ch2.getHealth() != 0){
+			            		checkStun1();
+			            	}
 			            }
 			        }, 
 			        5000 
@@ -780,7 +787,9 @@ public class GameWindow {
 			        new java.util.TimerTask() {
 			            @Override
 			            public void run() {
-			            	checkStun2();
+			            	if(ch1.getHealth() != 0 && ch2.getHealth() != 0){
+			            		checkStun2();
+			            	}
 			            }
 			        }, 
 			        5000 
